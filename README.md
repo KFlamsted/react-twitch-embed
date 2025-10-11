@@ -294,9 +294,9 @@ MIT © Kristian Flamsted
 ## Links
 
 - [NPM Package](https://www.npmjs.com/package/react-twitch-live-embed)
-- [GitHub Repository](#)
+- [GitHub Repository](https://github.com/KFlamsted/react-twitch-live-embed)
 - [Twitch Embed Documentation](https://dev.twitch.tv/docs/embed/everything/)
-- [Report Issues](#)
+- [Report Issues](https://github.com/KFlamsted/react-twitch-live-embed/issues)
 
 ## Acknowledgments
 

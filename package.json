@@ -40,18 +40,23 @@
     "component",
     "typescript",
     "twitch-embed",
-    "twitch-player"
+    "twitch-player",
+    "react-component",
+    "streaming",
+    "live-stream",
+    "iframe",
+    "gaming"
   ],
   "author": "Kristian Flamsted",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/KFlamsted/react-twitch-live-embed.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/KFlamsted/react-twitch-live-embed/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/KFlamsted/react-twitch-live-embed#readme",
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
