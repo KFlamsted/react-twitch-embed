@@ -5,45 +5,41 @@ Copy and paste these examples to get started quickly!
 ## Basic React App
 
 ```tsx
-import React from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
+import React from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function App() {
   return (
     <div className="App">
       <h1>My Twitch Stream</h1>
-      <TwitchLive 
-        channel="monstercat" 
-        width={800} 
-        height={450}
-      />
+      <TwitchLive channel="monstercat" width={800} height={450} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 ## Next.js (App Router)
 
 ```tsx
 // app/page.tsx
-'use client';
+'use client'
 
-import { TwitchLive } from 'react-twitch-live-embed';
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 export default function Home() {
   return (
     <main>
       <h1>Welcome to my stream!</h1>
-      <TwitchLive 
+      <TwitchLive
         channel="shroud"
         width="100%"
         height={600}
         parent={['yourdomain.com']} // Specify your domain
       />
     </main>
-  );
+  )
 }
 ```
 
@@ -51,44 +47,42 @@ export default function Home() {
 
 ```tsx
 // pages/index.tsx
-import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic'
 
 // Dynamic import to avoid SSR issues
 const TwitchLive = dynamic(
-  () => import('react-twitch-live-embed').then((mod) => mod.TwitchLive),
+  () => import('@kflamsted/react-twitch-embed').then((mod) => mod.TwitchLive),
   { ssr: false }
-);
+)
 
 export default function Home() {
   return (
     <div>
       <h1>Live Stream</h1>
-      <TwitchLive 
-        channel="ninja"
-        width={800}
-        height={450}
-      />
+      <TwitchLive channel="ninja" width={800} height={450} />
     </div>
-  );
+  )
 }
 ```
 
 ## Multiple Streams
 
 ```tsx
-import React from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
+import React from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function MultiStream() {
-  const channels = ['shroud', 'summit1g', 'pokimane'];
+  const channels = ['shroud', 'summit1g', 'pokimane']
 
   return (
-    <div style={{ 
-      display: 'grid', 
-      gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-      gap: '20px',
-      padding: '20px'
-    }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+        gap: '20px',
+        padding: '20px',
+      }}
+    >
       {channels.map((channel) => (
         <TwitchLive
           key={channel}
@@ -99,95 +93,87 @@ function MultiStream() {
         />
       ))}
     </div>
-  );
+  )
 }
 
-export default MultiStream;
+export default MultiStream
 ```
 
 ## Responsive Embed
 
 ```tsx
-import React from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
+import React from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function ResponsiveEmbed() {
   return (
-    <div style={{ 
-      maxWidth: '1280px', 
-      margin: '0 auto',
-      padding: '20px'
-    }}>
-      <TwitchLive 
-        channel="esl_csgo"
-        width="100%"
-        height={720}
-        theme="dark"
-      />
+    <div
+      style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '20px',
+      }}
+    >
+      <TwitchLive channel="esl_csgo" width="100%" height={720} theme="dark" />
     </div>
-  );
+  )
 }
 
-export default ResponsiveEmbed;
+export default ResponsiveEmbed
 ```
 
 ## With Channel Selector
 
 ```tsx
-import React, { useState } from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
+import React, { useState } from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function ChannelSelector() {
-  const [channel, setChannel] = useState('monstercat');
-  const channels = ['monstercat', 'shroud', 'pokimane', 'ninja'];
+  const [channel, setChannel] = useState('monstercat')
+  const channels = ['monstercat', 'shroud', 'pokimane', 'ninja']
 
   return (
     <div>
       <div style={{ marginBottom: '20px' }}>
         <label>Select Channel: </label>
-        <select 
-          value={channel} 
-          onChange={(e) => setChannel(e.target.value)}
-        >
+        <select value={channel} onChange={(e) => setChannel(e.target.value)}>
           {channels.map((ch) => (
-            <option key={ch} value={ch}>{ch}</option>
+            <option key={ch} value={ch}>
+              {ch}
+            </option>
           ))}
         </select>
       </div>
-      
-      <TwitchLive 
-        channel={channel}
-        width={800}
-        height={450}
-      />
+
+      <TwitchLive channel={channel} width={800} height={450} />
     </div>
-  );
+  )
 }
 
-export default ChannelSelector;
+export default ChannelSelector
 ```
 
 ## Custom Styled Embed
 
 ```tsx
-import React from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
-import './CustomStream.css';
+import React from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
+import './CustomStream.css'
 
 function CustomStream() {
   return (
     <div className="stream-container">
-      <TwitchLive 
+      <TwitchLive
         channel="gamesdonequick"
         width={800}
         height={450}
         className="custom-twitch-player"
       />
     </div>
-  );
+  )
 }
 
-export default CustomStream;
+export default CustomStream
 ```
 
 ```css
@@ -211,8 +197,8 @@ export default CustomStream;
 ## TypeScript Example
 
 ```tsx
-import React from 'react';
-import { TwitchLive, TwitchLiveProps } from 'react-twitch-live-embed';
+import React from 'react'
+import { TwitchLive, TwitchLiveProps } from '@kflamsted/react-twitch-embed'
 
 const StreamEmbed: React.FC = () => {
   const embedConfig: TwitchLiveProps = {
@@ -223,34 +209,34 @@ const StreamEmbed: React.FC = () => {
     muted: false,
     theme: 'dark',
     allowFullscreen: true,
-  };
+  }
 
   return (
     <div>
       <h2>ESL CS:GO Stream</h2>
       <TwitchLive {...embedConfig} />
     </div>
-  );
-};
+  )
+}
 
-export default StreamEmbed;
+export default StreamEmbed
 ```
 
 ## Conditional Rendering
 
 ```tsx
-import React, { useState, useEffect } from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
+import React, { useState, useEffect } from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function ConditionalStream() {
-  const [isLive, setIsLive] = useState(false);
-  const channel = 'yourChannel';
+  const [isLive, setIsLive] = useState(false)
+  const channel = 'yourChannel'
 
   // You would typically fetch this from Twitch API
   useEffect(() => {
     // Simulated check
-    setIsLive(true);
-  }, []);
+    setIsLive(true)
+  }, [])
 
   if (!isLive) {
     return (
@@ -258,37 +244,35 @@ function ConditionalStream() {
         <h2>Stream is currently offline</h2>
         <p>Check back later!</p>
       </div>
-    );
+    )
   }
 
   return (
     <div>
-      <div style={{ 
-        backgroundColor: '#ff0000', 
-        color: 'white', 
-        padding: '10px',
-        textAlign: 'center',
-        fontWeight: 'bold'
-      }}>
+      <div
+        style={{
+          backgroundColor: '#ff0000',
+          color: 'white',
+          padding: '10px',
+          textAlign: 'center',
+          fontWeight: 'bold',
+        }}
+      >
         🔴 LIVE NOW
       </div>
-      <TwitchLive 
-        channel={channel}
-        width="100%"
-        height={600}
-      />
+      <TwitchLive channel={channel} width="100%" height={600} />
     </div>
-  );
+  )
 }
 
-export default ConditionalStream;
+export default ConditionalStream
 ```
 
 ## Sidebar Embed
 
 ```tsx
-import React from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
+import React from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function SidebarLayout() {
   return (
@@ -298,11 +282,11 @@ function SidebarLayout() {
         <h1>Main Content</h1>
         <p>Your main content goes here...</p>
       </main>
-      
+
       {/* Sidebar with Stream */}
       <aside style={{ width: '400px' }}>
         <h3>Live Stream</h3>
-        <TwitchLive 
+        <TwitchLive
           channel="monstercat"
           width={400}
           height={300}
@@ -310,26 +294,26 @@ function SidebarLayout() {
         />
       </aside>
     </div>
-  );
+  )
 }
 
-export default SidebarLayout;
+export default SidebarLayout
 ```
 
 ## Fullscreen Button Example
 
 ```tsx
-import React from 'react';
-import { TwitchLive } from 'react-twitch-live-embed';
+import React from 'react'
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function FullscreenStream() {
   return (
     <div>
       <div style={{ marginBottom: '10px' }}>
-        <button 
+        <button
           onClick={() => {
-            const iframe = document.querySelector('iframe');
-            iframe?.requestFullscreen();
+            const iframe = document.querySelector('iframe')
+            iframe?.requestFullscreen()
           }}
           style={{
             padding: '10px 20px',
@@ -337,24 +321,24 @@ function FullscreenStream() {
             color: 'white',
             border: 'none',
             borderRadius: '4px',
-            cursor: 'pointer'
+            cursor: 'pointer',
           }}
         >
           Go Fullscreen
         </button>
       </div>
-      
-      <TwitchLive 
+
+      <TwitchLive
         channel="riotgames"
         width={800}
         height={450}
         allowFullscreen={true}
       />
     </div>
-  );
+  )
 }
 
-export default FullscreenStream;
+export default FullscreenStream
 ```
 
 ---
@@ -362,7 +346,7 @@ export default FullscreenStream;
 ## Installation Reminder
 
 ```bash
-npm install react-twitch-live-embed
+npm install @kflamsted/react-twitch-embed
 ```
 
 For more examples and interactive demos, check out the [Storybook](http://localhost:6006) or visit the [full documentation](./README.md).

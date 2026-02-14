@@ -1,4 +1,4 @@
-# react-twitch-live-embed
+# @kflamsted/react-twitch-embed
 
 A lightweight, TypeScript-first React component for embedding Twitch streams and channels into your application.
 
@@ -15,30 +15,24 @@ A lightweight, TypeScript-first React component for embedding Twitch streams and
 ## Installation
 
 ```bash
-npm install react-twitch-live-embed
+npm install @kflamsted/react-twitch-embed
 ```
 
 ```bash
-yarn add react-twitch-live-embed
+yarn add @kflamsted/react-twitch-embed
 ```
 
 ```bash
-pnpm add react-twitch-live-embed
+pnpm add @kflamsted/react-twitch-embed
 ```
 
 ## Quick Start
 
 ```tsx
-import { TwitchLive } from 'react-twitch-live-embed';
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function App() {
-  return (
-    <TwitchLive 
-      channel="monstercat" 
-      width={800} 
-      height={450}
-    />
-  );
+  return <TwitchLive channel="monstercat" width={800} height={450} />
 }
 ```
 
@@ -49,39 +43,30 @@ That's it! The component automatically detects your domain and handles all the T
 ### Basic Usage
 
 ```tsx
-import { TwitchLive } from 'react-twitch-live-embed';
+import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
 function MyStream() {
-  return <TwitchLive channel="shroud" />;
+  return <TwitchLive channel="shroud" />
 }
 ```
 
 ### Responsive Width
 
 ```tsx
-<TwitchLive 
-  channel="ninja" 
-  width="100%" 
-  height={450}
-/>
+<TwitchLive channel="ninja" width="100%" height={450} />
 ```
 
 ### Light Theme
 
 ```tsx
-<TwitchLive 
-  channel="summit1g" 
-  theme="light"
-  width={800}
-  height={450}
-/>
+<TwitchLive channel="summit1g" theme="light" width={800} height={450} />
 ```
 
 ### Muted Autoplay
 
 ```tsx
-<TwitchLive 
-  channel="pokimane" 
+<TwitchLive
+  channel="pokimane"
   autoplay={true}
   muted={true}
   width={800}
@@ -92,19 +77,14 @@ function MyStream() {
 ### Start at Specific Time (VODs)
 
 ```tsx
-<TwitchLive 
-  channel="esl_csgo" 
-  time="1h30m0s"
-  width={800}
-  height={450}
-/>
+<TwitchLive channel="esl_csgo" time="1h30m0s" width={800} height={450} />
 ```
 
 ### Custom Styling
 
 ```tsx
-<TwitchLive 
-  channel="riotgames" 
+<TwitchLive
+  channel="riotgames"
   className="my-custom-embed"
   width={800}
   height={450}
@@ -114,8 +94,8 @@ function MyStream() {
 ### Multiple Parent Domains
 
 ```tsx
-<TwitchLive 
-  channel="dreamhackcs" 
+<TwitchLive
+  channel="dreamhackcs"
   parent={['example.com', 'www.example.com', 'staging.example.com']}
   width={800}
   height={450}
@@ -126,26 +106,26 @@ function MyStream() {
 
 ### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `channel` | `string` | **required** | Name of the Twitch channel to embed |
-| `parent` | `string[]` | `[window.location.hostname]` | Parent domain(s) for embed security |
-| `width` | `number \| string` | `940` | Width in pixels or percentage (e.g., `800` or `"100%"`) |
-| `height` | `number \| string` | `480` | Height in pixels or percentage (e.g., `450` or `"50%"`) |
-| `autoplay` | `boolean` | `true` | Start playing automatically |
-| `muted` | `boolean` | `false` | Start with audio muted |
-| `allowFullscreen` | `boolean` | `true` | Allow fullscreen mode |
-| `theme` | `'light' \| 'dark'` | `'dark'` | Color theme for the player |
-| `time` | `string` | `'0h0m0s'` | Start time for VODs (format: `"XhYmZs"`) |
-| `className` | `string` | `undefined` | Custom CSS class name |
-| `id` | `string` | `undefined` | Custom ID for the iframe |
+| Prop              | Type                | Default                      | Description                                             |
+| ----------------- | ------------------- | ---------------------------- | ------------------------------------------------------- |
+| `channel`         | `string`            | **required**                 | Name of the Twitch channel to embed                     |
+| `parent`          | `string[]`          | `[window.location.hostname]` | Parent domain(s) for embed security                     |
+| `width`           | `number \| string`  | `940`                        | Width in pixels or percentage (e.g., `800` or `"100%"`) |
+| `height`          | `number \| string`  | `480`                        | Height in pixels or percentage (e.g., `450` or `"50%"`) |
+| `autoplay`        | `boolean`           | `true`                       | Start playing automatically                             |
+| `muted`           | `boolean`           | `false`                      | Start with audio muted                                  |
+| `allowFullscreen` | `boolean`           | `true`                       | Allow fullscreen mode                                   |
+| `theme`           | `'light' \| 'dark'` | `'dark'`                     | Color theme for the player                              |
+| `time`            | `string`            | `'0h0m0s'`                   | Start time for VODs (format: `"XhYmZs"`)                |
+| `className`       | `string`            | `undefined`                  | Custom CSS class name                                   |
+| `id`              | `string`            | `undefined`                  | Custom ID for the iframe                                |
 
 ### TypeScript
 
 The package includes full TypeScript definitions:
 
 ```tsx
-import type { TwitchLiveProps } from 'react-twitch-live-embed';
+import type { TwitchLiveProps } from '@kflamsted/react-twitch-embed'
 
 const MyComponent: React.FC = () => {
   const embedProps: TwitchLiveProps = {
@@ -153,10 +133,10 @@ const MyComponent: React.FC = () => {
     width: 800,
     height: 450,
     theme: 'dark',
-  };
+  }
 
-  return <TwitchLive {...embedProps} />;
-};
+  return <TwitchLive {...embedProps} />
+}
 ```
 
 ## Advanced Usage
@@ -167,13 +147,9 @@ const MyComponent: React.FC = () => {
 function ResponsiveEmbed() {
   return (
     <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
-      <TwitchLive 
-        channel="gamesdonequick" 
-        width="100%"
-        height={720}
-      />
+      <TwitchLive channel="gamesdonequick" width="100%" height={720} />
     </div>
-  );
+  )
 }
 ```
 
@@ -182,16 +158,10 @@ function ResponsiveEmbed() {
 ```tsx
 function ConditionalStream({ isLive, channelName }) {
   if (!isLive) {
-    return <p>Stream is offline</p>;
+    return <p>Stream is offline</p>
   }
 
-  return (
-    <TwitchLive 
-      channel={channelName}
-      width={800}
-      height={450}
-    />
-  );
+  return <TwitchLive channel={channelName} width={800} height={450} />
 }
 ```
 
@@ -199,20 +169,21 @@ function ConditionalStream({ isLive, channelName }) {
 
 ```tsx
 function MultiStream() {
-  const channels = ['shroud', 'summit1g', 'timthetatman'];
+  const channels = ['shroud', 'summit1g', 'timthetatman']
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '20px',
+      }}
+    >
       {channels.map((channel) => (
-        <TwitchLive
-          key={channel}
-          channel={channel}
-          width="100%"
-          height={300}
-        />
+        <TwitchLive key={channel} channel={channel} width="100%" height={300} />
       ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -223,6 +194,7 @@ function MultiStream() {
 **Issue:** The embed shows "Video unavailable" or doesn't load.
 
 **Solutions:**
+
 1. Verify the channel name is correct
 2. Check that the channel is live or has VODs
 3. Ensure your domain is in the `parent` array (if specified)
@@ -235,8 +207,8 @@ function MultiStream() {
 **Solution:** Twitch requires parent domains to be specified. This package auto-detects `window.location.hostname`, but in some cases you may need to specify it explicitly:
 
 ```tsx
-<TwitchLive 
-  channel="yourChannel" 
+<TwitchLive
+  channel="yourChannel"
   parent={['yourdomain.com', 'www.yourdomain.com']}
 />
 ```
@@ -248,18 +220,20 @@ function MultiStream() {
 **Solution:** The component uses `window.location.hostname` which isn't available during SSR. Either:
 
 1. Explicitly provide the `parent` prop:
+
 ```tsx
 <TwitchLive channel="channel" parent={['yourdomain.com']} />
 ```
 
 2. Use dynamic imports:
+
 ```tsx
-import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic'
 
 const TwitchLive = dynamic(
-  () => import('react-twitch-live-embed').then((mod) => mod.TwitchLive),
+  () => import('@kflamsted/react-twitch-embed').then((mod) => mod.TwitchLive),
   { ssr: false }
-);
+)
 ```
 
 ### Autoplay Not Working on Mobile
@@ -269,11 +243,7 @@ const TwitchLive = dynamic(
 **Solution:** Mobile browsers typically block autoplay with sound. Use muted autoplay:
 
 ```tsx
-<TwitchLive 
-  channel="channel" 
-  autoplay={true}
-  muted={true}
-/>
+<TwitchLive channel="channel" autoplay={true} muted={true} />
 ```
 
 ## Browser Support
@@ -293,14 +263,15 @@ MIT © Kristian Flamsted
 
 ## Links
 
-- [NPM Package](https://www.npmjs.com/package/react-twitch-live-embed)
-- [GitHub Repository](https://github.com/KFlamsted/react-twitch-live-embed)
+- [NPM Package](https://www.npmjs.com/package/@kflamsted/react-twitch-embed)
+- [GitHub Repository](https://github.com/KFlamsted/react-twitch-embed)
 - [Twitch Embed Documentation](https://dev.twitch.tv/docs/embed/everything/)
-- [Report Issues](https://github.com/KFlamsted/react-twitch-live-embed/issues)
+- [Report Issues](https://github.com/KFlamsted/react-twitch-embed/issues)
 
 ## Acknowledgments
 
 Built with:
+
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)

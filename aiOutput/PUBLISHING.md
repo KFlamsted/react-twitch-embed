@@ -1,6 +1,6 @@
 # Publishing Guide
 
-This guide covers how to publish the `react-twitch-live-embed` package to npm.
+This guide covers how to publish the `@kflamsted/react-twitch-embed` package to npm.
 
 ## Prerequisites
 
@@ -48,19 +48,20 @@ If you've created a GitHub repository:
 ```json
 "repository": {
   "type": "git",
-  "url": "git+https://github.com/KFlamsted/react-twitch-live-embed.git"
+  "url": "git+https://github.com/KFlamsted/@kflamsted/react-twitch-embed.git"
 },
 "bugs": {
-  "url": "https://github.com/KFlamsted/react-twitch-live-embed/issues"
+  "url": "https://github.com/KFlamsted/@kflamsted/react-twitch-embed/issues"
 },
-"homepage": "https://github.com/KFlamsted/react-twitch-live-embed#readme",
+"homepage": "https://github.com/KFlamsted/@kflamsted/react-twitch-embed#readme",
 ```
 
 ### 3. Update README Links
 
 Replace placeholder links in `README.md`:
+
 - GitHub repository URL
-- NPM package URL  
+- NPM package URL
 - Issues URL
 
 ## Publishing Steps
@@ -68,28 +69,33 @@ Replace placeholder links in `README.md`:
 ### First-Time Publication
 
 1. **Login to NPM**:
+
    ```bash
    npm login
    ```
 
 2. **Verify Package Name Availability**:
+
    ```bash
-   npm search react-twitch-live-embed
+   npm search @kflamsted/react-twitch-embed
    ```
-   
+
    If the name is taken, update `package.json` with a different name.
 
 3. **Dry Run** (verify what will be published):
+
    ```bash
    npm pack --dry-run
    ```
 
 4. **Publish**:
+
    ```bash
    npm publish
    ```
 
    Or if using a scoped package:
+
    ```bash
    npm publish --access public
    ```
@@ -99,6 +105,7 @@ Replace placeholder links in `README.md`:
 For version updates:
 
 1. **Update Version**:
+
    ```bash
    npm version patch  # For bug fixes (1.0.0 -> 1.0.1)
    npm version minor  # For new features (1.0.0 -> 1.1.0)
@@ -109,6 +116,7 @@ For version updates:
    Add details about what changed in this version.
 
 3. **Commit Changes**:
+
    ```bash
    git add .
    git commit -m "chore: release v1.x.x"
@@ -116,6 +124,7 @@ For version updates:
    ```
 
 4. **Publish**:
+
    ```bash
    npm publish
    ```
@@ -131,8 +140,9 @@ For version updates:
 If you want to publish under your username/organization:
 
 1. Change the package name in `package.json`:
+
    ```json
-   "name": "@KFlamsted/react-twitch-live-embed"
+   "name": "@KFlamsted/@kflamsted/react-twitch-embed"
    ```
 
 2. Publish as public:
@@ -145,30 +155,33 @@ If you want to publish under your username/organization:
 After publishing, test the package:
 
 1. **Create a test project**:
+
    ```bash
    npx create-react-app test-embed --template typescript
    cd test-embed
    ```
 
 2. **Install your package**:
+
    ```bash
-   npm install react-twitch-live-embed
+   npm install @kflamsted/react-twitch-embed
    ```
 
 3. **Use it**:
+
    ```tsx
    // src/App.tsx
-   import { TwitchLive } from 'react-twitch-live-embed';
+   import { TwitchLive } from '@kflamsted/react-twitch-embed'
 
    function App() {
      return (
        <div className="App">
          <TwitchLive channel="monstercat" width={800} height={450} />
        </div>
-     );
+     )
    }
 
-   export default App;
+   export default App
    ```
 
 4. **Run the app**:
@@ -180,7 +193,7 @@ After publishing, test the package:
 
 After publishing, configure your package on npmjs.com:
 
-1. Go to https://www.npmjs.com/package/react-twitch-live-embed
+1. Go to https://www.npmjs.com/package/@kflamsted/react-twitch-embed
 2. Add a README (automatically from your repo)
 3. Add tags/keywords for discoverability
 4. Link to GitHub repository
@@ -193,7 +206,7 @@ After publishing, configure your package on npmjs.com:
 npm pack --dry-run
 
 # View package info
-npm view react-twitch-live-embed
+npm view @kflamsted/react-twitch-embed
 
 # Check outdated dependencies
 npm outdated
@@ -202,10 +215,10 @@ npm outdated
 npm update
 
 # Deprecate a version
-npm deprecate react-twitch-live-embed@1.0.0 "Use version 1.0.1 instead"
+npm deprecate @kflamsted/react-twitch-embed@1.0.0 "Use version 1.0.1 instead"
 
 # Unpublish (within 72 hours only)
-npm unpublish react-twitch-live-embed@1.0.0
+npm unpublish @kflamsted/react-twitch-embed@1.0.0
 ```
 
 ## Best Practices

@@ -1,4 +1,4 @@
-# Project Summary: react-twitch-live-embed
+# Project Summary: @kflamsted/react-twitch-embed
 
 ## 🎉 Implementation Complete!
 
@@ -7,6 +7,7 @@ Your React Twitch embed package is fully implemented and ready for npm publicati
 ## 📦 What Was Built
 
 ### Core Package
+
 - **Component**: `TwitchLive` - A TypeScript-first React component for embedding Twitch streams
 - **Features**:
   - Automatic parent domain detection via `window.location.hostname`
@@ -17,6 +18,7 @@ Your React Twitch embed package is fully implemented and ready for npm publicati
   - Zero external dependencies (except React peer dependency)
 
 ### Build System
+
 - **Vite** for fast, modern bundling
 - **TypeScript** with strict mode enabled
 - **Outputs**: ESM and CommonJS formats
@@ -24,6 +26,7 @@ Your React Twitch embed package is fully implemented and ready for npm publicati
 - **Size**: ~1.35 KB (ESM), ~1.02 KB (CJS) - super lightweight!
 
 ### Documentation
+
 - **README.md**: Complete usage guide with examples
 - **IMPLEMENTATION.md**: Technical implementation plan
 - **CHANGELOG.md**: Version history
@@ -31,6 +34,7 @@ Your React Twitch embed package is fully implemented and ready for npm publicati
 - **LICENSE**: MIT License
 
 ### Interactive Demo
+
 - **Storybook**: 10+ stories showcasing all component features
 - Running at http://localhost:6006 (currently active)
 - Stories include:
@@ -58,8 +62,8 @@ react-twitch-embedded/
 │   └── index.ts                    ✅ Package entry point
 ├── dist/                           ✅ Built files
 │   ├── index.d.ts                  ✅ Type definitions
-│   ├── react-twitch-live-embed.js  ✅ ESM bundle
-│   └── react-twitch-live-embed.cjs ✅ CommonJS bundle
+│   ├── @kflamsted/react-twitch-embed.js  ✅ ESM bundle
+│   └── @kflamsted/react-twitch-embed.cjs ✅ CommonJS bundle
 ├── .storybook/                     ✅ Storybook config
 ├── package.json                    ✅ Package metadata
 ├── tsconfig.json                   ✅ TypeScript config
@@ -96,6 +100,7 @@ react-twitch-embedded/
    - [ ] Update links in `README.md`
 
 2. **Test Locally**:
+
    ```bash
    npm pack
    # Install in a test project to verify
@@ -125,9 +130,9 @@ npm publish              # Publish to npm
 
 ## 📊 Package Statistics
 
-- **Name**: `react-twitch-live-embed`
+- **Name**: `@kflamsted/react-twitch-embed`
 - **Version**: `1.0.0`
-- **Bundle Size**: 
+- **Bundle Size**:
   - ESM: 1.35 KB
   - CJS: 1.02 KB
   - Gzipped: ~0.65 KB
@@ -138,17 +143,17 @@ npm publish              # Publish to npm
 
 ```tsx
 <TwitchLive
-  channel="string"              // Required
-  parent={['string[]']}         // Optional (auto-detected)
-  width={number | 'string'}     // Optional (940)
-  height={number | 'string'}    // Optional (480)
-  autoplay={boolean}            // Optional (true)
-  muted={boolean}               // Optional (false)
-  allowFullscreen={boolean}     // Optional (true)
-  theme={'light' | 'dark'}      // Optional ('dark')
-  time="string"                 // Optional ('0h0m0s')
-  className="string"            // Optional
-  id="string"                   // Optional
+  channel="string" // Required
+  parent={['string[]']} // Optional (auto-detected)
+  width={number | 'string'} // Optional (940)
+  height={number | 'string'} // Optional (480)
+  autoplay={boolean} // Optional (true)
+  muted={boolean} // Optional (false)
+  allowFullscreen={boolean} // Optional (true)
+  theme={'light' | 'dark'} // Optional ('dark')
+  time="string" // Optional ('0h0m0s')
+  className="string" // Optional
+  id="string" // Optional
 />
 ```
 
@@ -183,6 +188,7 @@ npm publish              # Publish to npm
 ## 🔧 Customization Examples
 
 The component supports extensive customization. See the Storybook or README for examples of:
+
 - Responsive layouts
 - Custom styling
 - Multiple embeds
@@ -201,11 +207,11 @@ The component supports extensive customization. See the Storybook or README for 
 
 ## 🎊 Success!
 
-Your package is complete and ready to share with the React and Twitch communities! 
+Your package is complete and ready to share with the React and Twitch communities!
 
 **Happy streaming! 🎮📺**
 
 ---
 
-*Built with React, TypeScript, Vite, and Storybook*
-*Implementation completed: October 5, 2025*
+_Built with React, TypeScript, Vite, and Storybook_
+_Implementation completed: October 5, 2025_

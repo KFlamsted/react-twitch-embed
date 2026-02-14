@@ -1,20 +1,20 @@
 {
-  "name": "react-twitch-live-embed",
+  "name": "@kflamsted/react-twitch-embed",
   "version": "1.0.0",
   "description": "A lightweight React component for embedding Twitch streams and channels",
   "type": "module",
-  "main": "./dist/react-twitch-live-embed.cjs",
-  "module": "./dist/react-twitch-live-embed.js",
+  "main": "./dist/react-twitch-embed.cjs",
+  "module": "./dist/react-twitch-embed.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/react-twitch-live-embed.js"
+        "default": "./dist/react-twitch-embed.js"
       },
       "require": {
         "types": "./dist/index.d.ts",
-        "default": "./dist/react-twitch-live-embed.cjs"
+        "default": "./dist/react-twitch-embed.cjs"
       }
     }
   },
@@ -51,12 +51,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KFlamsted/react-twitch-live-embed.git"
+    "url": "https://github.com/KFlamsted/react-twitch-embed.git"
   },
   "bugs": {
-    "url": "https://github.com/KFlamsted/react-twitch-live-embed/issues"
+    "url": "https://github.com/KFlamsted/react-twitch-embed/issues"
   },
-  "homepage": "https://github.com/KFlamsted/react-twitch-live-embed#readme",
+  "homepage": "https://github.com/KFlamsted/react-twitch-embed#readme",
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
