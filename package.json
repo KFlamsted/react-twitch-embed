@@ -6,6 +6,9 @@
   "main": "./dist/react-twitch-embed.cjs",
   "module": "./dist/react-twitch-embed.js",
   "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "import": {
