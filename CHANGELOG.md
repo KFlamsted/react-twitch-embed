@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-10-05
 
 ### Added
-- Initial release of react-twitch-live-embed
+
+- Initial release of @kflamsted/react-twitch-embed
 - `TwitchLive` component for embedding Twitch streams
 - Full TypeScript support with comprehensive type definitions
 - Automatic parent domain detection using `window.location.hostname`
@@ -28,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Zero external dependencies (React peer dependency only)
 
 ### Documentation
+
 - Complete README with usage examples
 - API reference documentation
 - Troubleshooting guide
@@ -35,10 +37,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - SSR/Next.js integration guide
 
 ### Build & Tooling
+
 - Vite-based build system
 - TypeScript with strict mode
 - Automated declaration file generation
 - Storybook 9 for interactive documentation
 - MIT License
 
-[1.0.0]: https://github.com/KFlamsted/react-twitch-live-embed/releases/tag/v1.0.0
+[1.0.0]: https://github.com/KFlamsted/react-twitch-embed/releases/tag/v1.0.0

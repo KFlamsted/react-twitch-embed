@@ -2,11 +2,12 @@
 
 ## Project Overview
 
-**Package Name:** `react-twitch-live-embed`
+**Package Name:** `@kflamsted/react-twitch-embed`
 
 **Purpose:** A lightweight, TypeScript-first React component library that provides a simple, declarative way to embed Twitch streams and channels into React applications.
 
 **Core Value Proposition:**
+
 - Single, easy-to-use `<TwitchLive>` component
 - Full TypeScript support with comprehensive type definitions
 - Wraps the Twitch Embed API in a React-friendly interface
@@ -15,12 +16,14 @@
 ## Technical Architecture
 
 ### Technology Stack
+
 - **TypeScript** - For type safety and better developer experience
 - **React 18+** - Peer dependency, leveraging modern React features (hooks, concurrent features)
 - **Vite** - Build tool for both development and production builds
 - **Storybook** - Interactive documentation and component showcase
 
 ### Build Configuration
+
 - **Library Mode:** Using Vite's library mode to bundle as an npm package
 - **Output Formats:** ESM and CommonJS for maximum compatibility
 - **Tree Shaking:** Ensure the package is tree-shakeable
@@ -31,9 +34,11 @@
 ### Component: `<TwitchLive>`
 
 #### Implementation Strategy
+
 The component will use an **iframe-based approach** to embed the Twitch player, utilizing the official Twitch Embed URL structure.
 
 #### Key Features
+
 1. **Lifecycle Management:**
    - Use `useRef` to maintain iframe reference
    - Use `useEffect` to handle iframe creation and cleanup
@@ -53,39 +58,42 @@ The component will use an **iframe-based approach** to embed the Twitch player, 
 ```typescript
 interface TwitchLiveProps {
   // Required
-  channel: string;
-  
+  channel: string
+
   // Optional with sensible defaults
-  parent?: string[];              // default: [window.location.hostname]
-  allowFullscreen?: boolean;      // default: true
-  autoplay?: boolean;             // default: true
-  muted?: boolean;                // default: false
-  theme?: 'light' | 'dark';       // default: 'dark'
-  width?: number | string;        // default: 940
-  height?: number | string;       // default: 480
-  time?: string;                  // default: '0h0m0s'
-  
+  parent?: string[] // default: [window.location.hostname]
+  allowFullscreen?: boolean // default: true
+  autoplay?: boolean // default: true
+  muted?: boolean // default: false
+  theme?: 'light' | 'dark' // default: 'dark'
+  width?: number | string // default: 940
+  height?: number | string // default: 480
+  time?: string // default: '0h0m0s'
+
   // Additional useful props
-  className?: string;             // For custom styling
-  id?: string;                    // For custom identification
+  className?: string // For custom styling
+  id?: string // For custom identification
 }
 ```
 
 ### Implementation Approach
 
 **Option 1: Direct iframe (Recommended)**
+
 - Construct Twitch embed URL with query parameters
 - Render standard HTML `<iframe>` element
 - Simpler, more predictable, easier to maintain
 - Better for SSR/SSG scenarios
 
 **Option 2: Twitch Embed SDK**
+
 - Load Twitch's JavaScript SDK
 - Use their API to instantiate player
 - More complex, requires script loading
 - Better control over player methods (if needed in future)
 
 **Decision:** Start with **Option 1 (Direct iframe)** for MVP, as it:
+
 - Requires no external script loading
 - Is more lightweight
 - Meets all stated requirements
@@ -124,6 +132,7 @@ react-twitch-embedded/
 ## Implementation Phases
 
 ### Phase 1: Project Setup
+
 1. Initialize npm package with proper metadata
 2. Configure TypeScript with strict mode
 3. Set up Vite for library mode
@@ -131,6 +140,7 @@ react-twitch-embedded/
 5. Set up basic .gitignore and npm ignore files
 
 ### Phase 2: Core Component
+
 1. Create TypeScript interfaces for props
 2. Implement `TwitchLive` component with iframe
 3. Create URL builder utility for Twitch embed URLs
@@ -138,6 +148,7 @@ react-twitch-embedded/
 5. Implement proper error boundaries (if needed)
 
 ### Phase 3: Storybook Setup
+
 1. Install and configure Storybook for React + Vite
 2. Create comprehensive stories showcasing:
    - Basic usage with different channels
@@ -148,6 +159,7 @@ react-twitch-embedded/
 3. Add Storybook documentation pages
 
 ### Phase 4: Documentation & Testing
+
 1. Write comprehensive README with:
    - Installation instructions
    - Basic usage examples
@@ -158,6 +170,7 @@ react-twitch-embedded/
 3. Consider basic vitest tests (optional for v1.0)
 
 ### Phase 5: NPM Publishing Preparation
+
 1. Set proper package.json fields:
    - `name`, `version`, `description`
    - `keywords` for discoverability
@@ -175,38 +188,48 @@ react-twitch-embedded/
 ## Key Technical Decisions
 
 ### 1. Twitch Embed URL Format
+
 Based on Twitch documentation, the embed URL will be:
+
 ```
 https://player.twitch.tv/?channel={CHANNEL}&parent={PARENT}
 ```
+
 With additional query parameters for all customization options.
 
 ### 2. Parent Domain Requirement
+
 The `parent` prop will be **optional** and default to `[window.location.hostname]` when not provided. This approach:
+
 - Automatically works in any environment (localhost, staging, production)
 - Eliminates the need for developers to manually specify it during development
 - Still allows explicit override when needed (e.g., for multiple domains)
 - Handles the common case seamlessly while maintaining flexibility
 
 **Implementation:**
+
 ```typescript
-const parentDomains = parent ?? [window.location.hostname];
+const parentDomains = parent ?? [window.location.hostname]
 ```
 
 **Note:** For SSR environments where `window` is unavailable, we'll need a fallback or require the prop to be explicitly set.
 
 ### 3. Responsive Sizing
+
 Support both pixel values and percentage strings:
+
 - Numbers → convert to `{value}px`
 - Strings → pass through as-is (allows `"100%"`, `"50vh"`, etc.)
 
 ### 4. TypeScript Configuration
+
 - `strict: true` for maximum type safety
 - Generate declaration files (`.d.ts`)
 - Target ES2020+ for modern browsers
 - Use `"moduleResolution": "bundler"` for Vite compatibility
 
 ### 5. React Compatibility
+
 - Peer dependency: `"react": ">=18.0.0"`
 - Use functional components with hooks only
 - No class components
@@ -216,16 +239,16 @@ Support both pixel values and percentage strings:
 
 ```json
 {
-  "name": "react-twitch-live-embed",
+  "name": "@kflamsted/react-twitch-embed",
   "version": "1.0.0",
   "type": "module",
-  "main": "./dist/react-twitch-live-embed.cjs",
-  "module": "./dist/react-twitch-live-embed.js",
+  "main": "./dist/@kflamsted/react-twitch-embed.cjs",
+  "module": "./dist/@kflamsted/react-twitch-embed.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/react-twitch-live-embed.js",
-      "require": "./dist/react-twitch-live-embed.cjs",
+      "import": "./dist/@kflamsted/react-twitch-embed.js",
+      "require": "./dist/@kflamsted/react-twitch-embed.cjs",
       "types": "./dist/index.d.ts"
     }
   },
@@ -239,6 +262,7 @@ Support both pixel values and percentage strings:
 ## Success Criteria
 
 ### Must Have (v1.0.0)
+
 - ✅ Working `<TwitchLive>` component with all specified props
 - ✅ TypeScript definitions exported
 - ✅ Builds successfully with Vite
@@ -248,6 +272,7 @@ Support both pixel values and percentage strings:
 - ✅ Tested installation in a fresh React project
 
 ### Nice to Have (Future Versions)
+
 - Unit tests with Vitest + React Testing Library
 - E2E tests with Playwright
 - CI/CD pipeline (GitHub Actions)
@@ -268,7 +293,7 @@ Support both pixel values and percentage strings:
 ## Open Questions / Decisions Needed
 
 1. **License:** MIT, Apache 2.0, or other?
-2. **Package Scope:** Should it be scoped (e.g., `@KFlamsted/react-twitch-live-embed`)?
+2. **Package Scope:** Should it be scoped (e.g., `@KFlamsted/@kflamsted/react-twitch-embed`)?
 3. **Error Handling:** How should we handle invalid channels or missing required props?
 4. **SSR Support:** Should we handle server-side rendering scenarios? (Important given our `window.location.hostname` default)
    - Option A: Detect SSR environment and skip rendering iframe on server
@@ -288,6 +313,7 @@ Support both pixel values and percentage strings:
 ## Next Steps
 
 Once this implementation plan is approved:
+
 1. Initialize the npm package and install dependencies
 2. Configure TypeScript, Vite, and project structure
 3. Implement the core `TwitchLive` component
